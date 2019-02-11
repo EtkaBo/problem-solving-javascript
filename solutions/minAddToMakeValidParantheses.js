@@ -28,5 +28,14 @@ var minAddToMakeValid = function(S) {
 };
 
 
-var returnVal = minAddToMakeValid('())))');
+
+function minAddToMakeValid2Line(S) {
+
+    while(S.includes('()')) {
+        S = S.replace('()', '');
+    }
+    return S.length;
+}
+
+var returnVal = minAddToMakeValid2Line('())))');
 console.log(returnVal);
