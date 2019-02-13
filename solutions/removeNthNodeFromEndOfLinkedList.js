@@ -22,6 +22,10 @@
  */
 var removeNthFromEnd = function(head, n) {
   
+    if(n === 1 && head.next === null) {
+        return null
+    }
+    
     let fast = head;
     let slow = head;
     
@@ -29,6 +33,10 @@ var removeNthFromEnd = function(head, n) {
         
         fast = fast.next;
         n--;
+    }
+    
+    if(fast === null) {
+        return head.next;
     }
     
     let prev = slow;
