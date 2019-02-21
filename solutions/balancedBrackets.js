@@ -5,7 +5,7 @@
 
 // Complete the isBalanced function below.
 
-//note below method doesn't work with second condition:
+//note: below method doesn't work with second condition:
 // function isBalanced(s) {
 
 //     var eachBracket = s.split('');
