@@ -18,11 +18,14 @@ var longestPalindrome = function(s) {
         }
     }
     let biggestNum = 0;
+    let biggestIndex = 0;
     for(var i = 0; i< s.length; i++) {
         let indexsStrValue = dict[i];
+        
+        if(lengthOfStr(indexsStrValue) > biggestNum) { biggestIndex = i };
         biggestNum = Math.max(biggestNum, lengthOfStr(indexsStrValue));
     }
-    return dict[biggestNum];    
+    return dict[biggestIndex];    
 };
 
 var lengthOfStr = function(str) {
