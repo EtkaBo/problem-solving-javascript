@@ -3,7 +3,7 @@
 /**
  * @param {string} s
  * @return {number}
- */"pwwkew"
+ */
  var lengthOfLongestSubstring = function(s) {
     
     let maxNum = 0;
