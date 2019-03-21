@@ -8,20 +8,23 @@
  */
 var reverse = function(x) {
     
-        var isNegativeNum = x < 0
-        let reversedStr = reverseString(x.toString(), isNegativeNum);
-        return reversedStr.length > 9 ? 0 : +reversedStr;
+    var isNegativeNum = x < 0
+    let reversedInt = +reverseString(x.toString(), isNegativeNum);
+    
+    if(reversedInt > 2147483647 || reversedInt < -2147483648) {return 0};
+
+    return reversedInt;
 
 };
 
 var reverseString = function(s, isNegativeNum) {
-    let strToReturn = isNegativeNum ? '-' : '';
-    for(var i = s.length - 1; i >= 0; i--) {
-        
-        if(isNegativeNum && i === 0) {
-            break;
-        }
-        strToReturn += s[i];
+let strToReturn = isNegativeNum ? '-' : '';
+for(var i = s.length - 1; i >= 0; i--) {
+    
+    if(isNegativeNum && i === 0) {
+        break;
     }
-    return strToReturn;
+    strToReturn += s[i];
+}
+return strToReturn;
 }
