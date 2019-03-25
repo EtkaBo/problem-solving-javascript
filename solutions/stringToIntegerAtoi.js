@@ -9,17 +9,21 @@ var myAtoi = function(str) {
     
     var validCharList = validCharObject();
     var validString = '';
+
+    if(validCharList[str[0]] === undefined) {
+        return 0;
+    }
     
     for(var i =0; i< str.length; i++) {
-        
+        if(validCharList[str[i]] === undefined) {
+            break;
+        }
+
         if(str[i] === ' ') {
             continue;
         }
-        
-        if(validCharList[str[i]] === undefined) {
-            return 0;
-        }
-        validString += str[i]
+
+        validString += str[i];
     }
     
     if(+validString > 2147483647) {
@@ -29,7 +33,7 @@ var myAtoi = function(str) {
         return -2147483648;
     }
 
-    return +validString;
+    return Number.isNaN(+validString) ? 0 : +validString;
     
 };
 
@@ -46,6 +50,12 @@ var validCharObject = function() {
         '8':8,
         '9':9,
         '+':10,
-        '-':11
+        '-':11,
+        ' ':12
+        
     }
 }
+
+
+//"   +0 123"
+//this condition fails
