@@ -9,6 +9,7 @@ var myAtoi = function(str) {
     
     var validCharList = validCharObject();
     var validString = '';
+    let numberSeen = false;
 
     if(validCharList[str[0]] === undefined) {
         return 0;
@@ -19,10 +20,17 @@ var myAtoi = function(str) {
             break;
         }
 
+        if((numberSeen && str[i] === ' ') ||
+          (numberSeen && (str[i] === '-' || str[i] === '+'))){
+            break;
+        }
+        
         if(str[i] === ' ') {
             continue;
         }
 
+        
+        numberSeen = true;
         validString += str[i];
     }
     
@@ -55,7 +63,3 @@ var validCharObject = function() {
         
     }
 }
-
-
-//"   +0 123"
-//this condition fails
