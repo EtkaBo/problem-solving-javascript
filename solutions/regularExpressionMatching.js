@@ -1,7 +1,4 @@
 /**
- * Problem Link:
- * https://leetcode.com/problems/regular-expression-matching/
- * 
  * @param {string} s
  * @param {string} p
  * @return {boolean}
@@ -36,7 +33,7 @@ var isMatch = function(s, p) {
                 continue;
             }
             
-            else {return false;}
+             return false;
         }
         
         sI++;
